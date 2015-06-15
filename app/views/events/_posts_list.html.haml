@@ -1,0 +1,6 @@
+- @posts.each do |post|
+  .pure-g
+    .pure-u-1.pad-10
+      = link_to game_event_post_path(post.game, post.event, post) do
+        .pure-well
+          = post.title

@@ -1,0 +1,10 @@
+.pure-g
+  .pure-u-1.pad-10
+    %h1 Editing game
+
+= render 'form'
+
+.pure-g
+  .pure-u-1.pad-10
+    = link_to 'Show', @game, class: 'pure-button'
+    = link_to 'Back', games_path, class: 'pure-button'

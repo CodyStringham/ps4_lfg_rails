@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  group_size: 1
+  checkpoint: MyString
+  title: MyString
+  game_id: 
+
+two:
+  name: MyString
+  group_size: 1
+  checkpoint: MyString
+  title: MyString
+  game_id: 

@@ -1,0 +1,15 @@
+.pure-g
+  .pure-u-1.pad-10
+    %h1 Resend confirmation instructions
+
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'pure-form pure-form-stacked' }) do |f|
+  = devise_error_messages!
+  .pad-10
+    = f.label :email
+    = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+  .pad-10
+    = f.submit "Resend confirmation instructions", class: 'pure-button success'
+
+.pure-g
+  .pure-u-1.pad-10
+    = render "devise/shared/links"

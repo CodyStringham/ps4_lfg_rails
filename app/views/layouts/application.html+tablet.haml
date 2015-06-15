@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title PS4 LFG
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+
+    / Renders navigation unless app request
+    - unless session[:show_navigation] == 'false'
+      = render partial: 'layouts/navigation'
+
+    .container.notices
+      .pad-10
+        - flash.each do |name, msg|
+          = content_tag :div, msg, class: "#{name} pure-well"
+      = yield

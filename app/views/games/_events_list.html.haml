@@ -1,0 +1,6 @@
+- @events.each do |event|
+  .pure-g
+    .pure-u-1.pad-10
+      = link_to direct_game_event_url(event.game, event) do
+        .pure-well
+          = event.name

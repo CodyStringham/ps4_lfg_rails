@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gamertag: MyString
+  mic: false
+  region: MyString
+  language: MyString
+
+two:
+  gamertag: MyString
+  mic: false
+  region: MyString
+  language: MyString

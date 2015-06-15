@@ -1,0 +1,21 @@
+.pure-g
+  .pure-u-1.pad-10
+    %p
+      %b Title:
+      = @post.title
+    %p
+      %b Checkpoint:
+      = @post.checkpoint
+    %p
+      %b Gamertag:
+      = @post.user.gamertag
+    %p
+      %b Event:
+      = @post.event.name
+
+.pure-g
+  .pure-u-1.pad-10
+    = link_to 'Back', direct_game_event_path(@post.game, @post.event), class: 'pure-button'
+    - if @post.user == current_user || current_admin?
+      = link_to 'Edit', edit_game_event_post_path(@post.game, @post.event, @post), class: 'pure-button'
+      = link_to 'Delete', game_event_post_path(@post.game, @post.game, @post), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'pure-button error'

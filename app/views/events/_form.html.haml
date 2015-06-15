@@ -1,0 +1,15 @@
+= form_for @event, url: game_events_path(@event.game), html: {class: 'pure-form pure-form-stacked'} do |f|
+  - if @event.errors.any?
+    #error_explanation.pad-10
+      %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
+      %ul
+        - @event.errors.full_messages.each do |msg|
+          %li= msg
+  .pad-10
+    = f.label :name
+    = f.text_field :name
+  .pad-10
+    = f.label :group_size
+    = f.number_field :group_size
+  .pad-10
+    = f.submit 'Save', class: 'pure-button'

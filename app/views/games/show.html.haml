@@ -1,0 +1,9 @@
+- unless session[:show_navigation] == 'false'
+  .pure-g
+    .pure-u-1.pad-10
+      %h1
+        = @game.name
+
+= render partial: 'games/events_list'
+
+

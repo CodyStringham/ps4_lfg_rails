@@ -1,0 +1,27 @@
+.pure-g
+  .pure-u-1.pad-10.table-responsive
+    %table.pure-table
+      %thead
+        %tr
+          %th Title
+          %th Checkpoint
+          %th User
+          %th Event
+          %th
+          %th
+          %th
+
+      %tbody
+        - @posts.each do |post|
+          %tr
+            %td= post.title
+            %td= post.checkpoint
+            %td= post.user
+            %td= post.event.name
+            %td= link_to 'Show', direct_game_event_post_path(post.game, post.event, post), class: 'pure-button small'
+            %td= link_to 'Edit', edit_game_event_post_path(post.game, post.event, post), class: 'pure-button small'
+            %td= link_to 'Destroy', game_event_post_path(post.game, post.game, post), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'pure-button small error'
+
+.pure-g
+  .pure-u-1.pad-10
+    = link_to 'New Post', new_game_event_post_path(@event.game, @event), class: 'pure-button'

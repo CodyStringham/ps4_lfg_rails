@@ -1,0 +1,25 @@
+.pure-g
+  .pure-u-1.pad-10
+    %h1 Listing games
+
+.pure-g
+  .pure-u-1.pad-10.table-responsive
+    %table.pure-table
+      %thead
+        %tr
+          %th Name
+          %th
+          %th
+          %th
+
+      %tbody
+        - @games.each do |game|
+          %tr
+            %td= game.name
+            %td= link_to 'Show', game, class: 'pure-button small'
+            %td= link_to 'Edit', edit_game_path(game), class: 'pure-button small'
+            %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'pure-button small error'
+
+.pure-g
+  .pure-u-1.pad-10
+    = link_to 'New Game', new_game_path, class: 'pure-button'

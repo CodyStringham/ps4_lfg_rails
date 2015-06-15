@@ -1,0 +1,20 @@
+default: &default
+  username:
+  password:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: ps4_lfg_rails_development
+
+test:
+  <<: *default
+  database: ps4_lfg_rails_test
+
+production:
+  <<: *default
+  database: ps4_lfg_rails_production
+  username: ps4_lfg_rails
+  password:

@@ -1,0 +1,79 @@
+// Browser Compatability
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: proxima, helvetica, sans-serif;
+}
+
+.pure-g {
+  font-size: 0;
+  [class *= "pure-u"] {
+    box-sizing: border-box;
+    font-size: 16px;
+    &.l-box {
+      padding: 1em;
+    }
+  }
+}
+
+// responsive tables
+.table-responsive {
+  overflow: scroll;
+}
+
+// Buttons
+.pure-button {
+  &.primary,
+  &.primary-light,
+  &.accent,
+  &.accent-light,
+  &.success,
+  &.error {
+    color: white;
+    border-radius: 2px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  &.primary {
+    background-color: $primary;
+  }
+  &.primary-light {
+    background-color: $primary-light;
+  }
+  &.accent {
+    background-color: $accent;
+  }
+  &.accent-light {
+    background-color: $accent-light;
+  }
+  &.success {
+    background-color: $green;
+  }
+  &.error {
+    background-color: $red;
+  }
+  &.small {
+    font-size: 70%;
+  }
+  &.large {
+    font-size: 130%;
+  }
+}
+
+.pure-well {
+  background: #F0F0F0;
+  border: 1px solid #E6E6E6;
+  padding: 20px;
+  border-radius: 2px;
+  &.notice {
+    background: $green;
+    border: 1px solid darken($green, 5%);
+    color: white;
+  }
+  &.alert {
+    background: $red;
+    border: 1px solid darken($red, 5%);
+    color: white;
+  }
+}
+
+
+

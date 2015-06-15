@@ -1,0 +1,16 @@
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 10px 60px;
+}
+
+// What if I told you the margins... is that so bad?
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
+}
+
+// No thanks underlines
+a {
+  text-decoration: none;
+}

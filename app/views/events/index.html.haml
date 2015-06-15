@@ -1,0 +1,29 @@
+.pure-g
+  .pure-u-1.pad-10
+    %h1 Listing events
+
+.pure-g
+  .pure-u-1.pad-10.table-responsive
+    %table.pure-table
+      %thead
+        %tr
+          %th Name
+          %th Group size
+          %th Game
+          %th
+          %th
+          %th
+
+      %tbody
+        - @events.each do |event|
+          %tr
+            %td= event.name
+            %td= event.group_size
+            %td= event.game.name
+            %td= link_to 'Show', direct_game_event_path(event.game, event), class: 'pure-button small'
+            %td= link_to 'Edit', edit_game_event_path(event.game, event), class: 'pure-button small'
+            %td= link_to 'Destroy', game_event_path(event.game, event), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'pure-button small error'
+
+.pure-g
+  .pure-u-1.pad-10
+    = link_to 'New Event', new_game_event_path(@game), class: 'pure-button'
