@@ -21,6 +21,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'ffaker'
 
 gem 'rabl'
 gem 'oj'
@@ -47,6 +48,5 @@ end
 
 group :development, :test do
   gem 'jazz_fingers'
-  gem 'ffaker'
   gem 'factory_girl_rails'
 end
