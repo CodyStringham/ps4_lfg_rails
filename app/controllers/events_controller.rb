@@ -3,6 +3,14 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_game, only: [:index, :new, :create]
 
+  def default_url_options
+    if session[:show_navigation] == 'false'
+      {:host => "hybrid", protocol: 'link'}
+    else
+      {}
+    end
+  end
+
   def index
     @events = @game.events.all
   end
