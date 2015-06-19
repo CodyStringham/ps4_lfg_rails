@@ -6,7 +6,7 @@ child :user do
 end
 
 child :event do
-  attributes :name, :group_size
+  attributes :name, :group_size, :slug
 end
 
 
