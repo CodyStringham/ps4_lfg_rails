@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  respond_to :js, :html
+
   # before_action :authenticate_user!
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
