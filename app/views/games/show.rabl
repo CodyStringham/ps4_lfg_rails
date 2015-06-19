@@ -1,2 +1,2 @@
 object @events
-attributes :name, :id, :group_size
+attributes :name, :id, :group_size, :slug

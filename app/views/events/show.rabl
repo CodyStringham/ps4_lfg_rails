@@ -1,5 +1,5 @@
 object @posts
-attributes :title, :checkpoint, :event
+attributes :id, :title, :checkpoint, :event
 
 child :user do
   attributes :gamertag
