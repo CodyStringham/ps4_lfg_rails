@@ -13,10 +13,11 @@
       %b Event:
       = @post.event.name
 
-- unless session[:show_navigation] == 'false'
-  .pure-g
-    .pure-u-1.pad-10
+
+.pure-g
+  .pure-u-1.pad-10
+    - unless session[:show_navigation] == 'false'
       = link_to 'Back', direct_game_event_path(@post.game, @post.event), class: 'pure-button'
-      - if @post.user == current_user || current_admin?
-        = link_to 'Edit', edit_game_event_post_path(@post.game, @post.event, @post), class: 'pure-button'
-        = link_to 'Delete', game_event_post_path(@post.game, @post.game, @post), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'pure-button error'
+    - if @post.user == current_user || current_admin?
+      = link_to 'Edit', edit_game_event_post_path(@post.game, @post.event, @post), class: 'pure-button'
+      = link_to 'Delete', game_event_post_path(@post.game, @post.game, @post), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'pure-button error'
