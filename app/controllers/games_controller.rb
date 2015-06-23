@@ -17,6 +17,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    expires_in 1.minute, public: true
     @events = @game.events
   end
 

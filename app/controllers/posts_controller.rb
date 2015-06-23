@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    expires_in 1.minute, public: true
   end
 
   def new

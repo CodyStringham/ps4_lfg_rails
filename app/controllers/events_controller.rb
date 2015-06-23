@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    expires_in 1.minute, public: true
     @posts = @event.posts
   end
 
