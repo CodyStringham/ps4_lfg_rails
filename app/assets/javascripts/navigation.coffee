@@ -22,6 +22,7 @@ $(document).ready ->
 
 
   document.getElementById('toggle').addEventListener 'click', (e) ->
+    e.preventDefault()
     toggleMenu()
 
   window.addEventListener WINDOW_CHANGE_EVENT, closeMenu
