@@ -17,7 +17,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    expires_in 1.minute, public: true
+    expires_in 1.minute, public: true # sets an cache expiration in header for ios app
     @events = @game.events
   end
 

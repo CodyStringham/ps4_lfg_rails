@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    expires_in 1.minute, public: true
+    expires_in 1.minute, public: true # sets an cache expiration in header for ios app
   end
 
   def new
