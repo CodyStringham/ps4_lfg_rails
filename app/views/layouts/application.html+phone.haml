@@ -11,6 +11,8 @@
     / Renders navigation unless app request
     - unless session[:show_navigation] == 'false'
       = render partial: 'layouts/navigation'
+    - else
+      .margin-top-5
 
     .container.notices
       - flash.each do |name, msg|
