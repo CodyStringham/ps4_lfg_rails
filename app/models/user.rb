@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
   has_many :posts
+
+  validates :email, :password, :gamertag, :mic, :region, :language, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

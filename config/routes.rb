@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     delete '/sign-out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  namespace :api do
+    namespace :v1 do
+      post '/user_register', to: 'users#register'
+      post '/user_login', to: 'users#login'
+    end
+  end
+
   authenticated :user, lambda {|u| u.admin } do
     resources :games do
       resources :events
