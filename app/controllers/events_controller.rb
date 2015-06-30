@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
-  respond_to :js, :html
 
-  before_action :authenticate_user!
+  respond_to :js, :html
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_game, only: [:index, :new, :create]
 

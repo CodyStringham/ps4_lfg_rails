@@ -11,5 +11,7 @@
   .pad-10
     = f.label :checkpoint
     = f.text_field :checkpoint
+
+    = f.text_field :user_id, value: current_user.id || User.find_by_email(params[:user_email]).id
   .pad-10
     = f.submit 'Save', class: 'pure-button success'

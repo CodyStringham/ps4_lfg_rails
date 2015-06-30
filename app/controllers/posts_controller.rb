@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_event, only: [:index, :new, :create]
   before_action :ensure_owner, only: [:edit, :update, :delete]
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @event.posts.new(post_params.merge(user_id: current_user.id))
+    @post = @event.posts.new(post_params)
     if @post.save
       redirect_to direct_game_event_path(@post.game, @post.event), notice: 'Post was successfully created.'
     else
