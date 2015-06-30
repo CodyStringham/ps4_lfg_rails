@@ -5,6 +5,7 @@
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
+
   .pad-10
     = f.label :title
     = f.text_field :title
@@ -12,6 +13,6 @@
     = f.label :checkpoint
     = f.text_field :checkpoint
 
-    = f.text_field :user_id, value: current_user.id || User.find_by_email(params[:user_email]).id
+    = f.text_field :user_id, value: current_user.try(:id) || User.find_by_email(params[:user_email]).id, hidden: true
   .pad-10
     = f.submit 'Save', class: 'pure-button success'

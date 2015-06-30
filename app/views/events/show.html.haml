@@ -2,7 +2,7 @@
   - unless session[:show_navigation] == 'false'
     .pure-u-1.pure-u-sm-1-2.pad-10
       %h1 #{@event.game.name} / #{@event.name}
-  .pure-u-1.pure-u-sm-1-2.pad-10.text-right
-    = link_to "New Post", new_game_event_post_path(@event.game, @event), class: 'pure-button accent'
+    .pure-u-1.pure-u-sm-1-2.pad-10.text-right
+      = link_to "New Post", new_game_event_post_path(@event.game, @event), class: 'pure-button accent'
 
 = render partial: 'events/posts_list'

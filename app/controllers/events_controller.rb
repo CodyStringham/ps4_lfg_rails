@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
   def show
     expires_in 1.minute, public: true # sets an cache expiration in header for ios app
-    @posts = @event.posts
+    @posts = @event.posts.order("created_at DESC")
   end
 
   def new

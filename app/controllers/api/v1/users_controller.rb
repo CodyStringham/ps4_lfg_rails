@@ -2,7 +2,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   respond_to :json
 
   skip_before_action :authenticate_user_from_token!
-  # skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!
 
   def user_login
     if @user = User.find_by_email(user_login_params[:email])
@@ -29,6 +29,10 @@ class Api::V1::UsersController < Api::V1::BaseController
       @message = {error: errors}
       render 'api/v1/error'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
