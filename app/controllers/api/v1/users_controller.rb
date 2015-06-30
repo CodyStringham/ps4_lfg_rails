@@ -4,32 +4,11 @@ class Api::V1::UsersController < Api::V1::BaseController
   def user_login
     if @user = User.find_by_email(user_login_params[:email])
       if @user.valid_password?(user_login_params[:password])
-        sign_in(:user, @user)
+        sign_in(@user, store: false)
       else
         @message = {error: 'Unauthorized.'}
         render 'api/v1/error'
       end
-      render 'api/v1/users/show'
-    else
-      @message = {error: 'Unauthorized.'}
-      render 'api/v1/error'
-    end
-  end
-
-  def user_logout
-    if @user = User.find_by(user_auth_params)
-      sign_out(:user, @user)
-      @message = {error: 'Logged Out.'}
-      render 'api/v1/error'
-    else
-      @message = {error: 'User Not Found.'}
-      render 'api/v1/error'
-    end
-  end
-
-  def app_login
-    if @user = User.find_by(user_auth_params)
-      sign_in(:user, @user)
       render 'api/v1/users/show'
     else
       @message = {error: 'Unauthorized.'}
@@ -57,10 +36,6 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def user_login_params
     params.require(:user).permit(:email, :password)
-  end
-
-  def user_auth_params
-    params.require(:user).permit(:auth_token)
   end
 
 end
