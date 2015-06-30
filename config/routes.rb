@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      post '/app_login', to: 'users#app_login'
+      post '/user_login', to: 'users#user_login'
+      post '/user_logout', to: 'users#user_logout'
       post '/user_register', to: 'users#register'
-      post '/user_login', to: 'users#login'
     end
   end
 
