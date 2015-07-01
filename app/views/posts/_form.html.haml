@@ -18,9 +18,9 @@
     = f.label :checkpoint
     = f.text_field :checkpoint
 
-    = f.text_field :user_id, value: current_user.try(:id) || User.find_by_email(params[:user_email]).try(:id) #, hidden: true
-    = f.text_field :user_email, value: current_user.try(:email) || User.find_by_email(params[:user_email]).try(:email) #, hidden: true
-    = f.text_field :user_token, value: current_user.try(:auth_token) || User.find_by_email(params[:user_email]).try(:auth_token) #, hidden: true
+    = f.text_field :user_id, value: current_user.try(:id) || User.find_by_email(params[:user_email]).try(:id), hidden: true
+    = f.text_field :user_email, value: current_user.try(:email) || User.find_by_email(params[:user_email]).try(:email), hidden: true
+    = f.text_field :user_token, value: current_user.try(:auth_token) || User.find_by_email(params[:user_email]).try(:auth_token), hidden: true
   .pad-10
     = f.submit 'Save', class: 'pure-button success'
 
