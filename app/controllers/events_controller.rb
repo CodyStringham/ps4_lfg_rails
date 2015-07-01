@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
 
-  respond_to :js, :html
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_game, only: [:index, :new, :create]
 
@@ -51,19 +50,21 @@ class EventsController < ApplicationController
   end
 
   private
-    def set_event
-      begin
-      @event = Event.friendly.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-      redirect_to "/404"
-      end
-    end
 
-    def set_game
-      @game = Game.friendly.find(params[:game_id])
+  def set_event
+    begin
+    @event = Event.friendly.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    redirect_to "/404"
     end
+  end
 
-    def event_params
-      params.require(:event).permit(:name, :group_size, :game_id)
-    end
+  def set_game
+    @game = Game.friendly.find(params[:game_id])
+  end
+
+  def event_params
+    params.require(:event).permit(:name, :group_size, :game_id)
+  end
+
 end

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       get '/users/:id', to: 'users#show'
       post '/user_login', to: 'users#user_login'
       post '/user_register', to: 'users#register'
+
+      get '/:id', to: 'games#show', as: :direct_game
+      get '/:game_id/:id', to: 'events#show', as: :direct_game_event
     end
   end
 

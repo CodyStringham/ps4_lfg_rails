@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  respond_to :js, :html
+
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def default_url_options
