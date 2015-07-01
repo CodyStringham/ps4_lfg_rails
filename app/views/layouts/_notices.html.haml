@@ -1,0 +1,4 @@
+- flash.each do |name, msg|
+  .notices
+    .pad-10
+      = content_tag :div, msg, class: "#{name} pure-well"

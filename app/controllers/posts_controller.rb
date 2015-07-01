@@ -21,6 +21,8 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user_email = user_email
+    @user_token = user_token
     @post = @event.posts.new()
   end
 
@@ -28,9 +30,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @event.posts.new(post_params)
+    @post = @event.posts.new(post_params.except(:user_email, :user_token))
     if @post.save
-      redirect_to direct_game_event_url(@post.game, @post.event), notice: 'Post was successfully created.'
+      redirect_to direct_game_event_url(@post.game, @post.event, {user_email: post_params[:user_email], user_token: post_params[:user_token]}), notice: 'Post was successfully created.'
     else
       render :new
     end
@@ -69,6 +71,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :checkpoint, :user_id, :event_id)
+      params.require(:post).permit(:title, :checkpoint, :user_id, :event_id, :user_email, :user_token)
     end
 end

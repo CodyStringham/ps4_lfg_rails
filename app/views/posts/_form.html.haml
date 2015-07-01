@@ -1,4 +1,9 @@
-= form_for [@post.game, @post.event, @post], html: {class: 'pure-form pure-form-stacked'} do |f|
+-# = raise 'hell'
+
+-# This is the correct way, just need params in the form for mobile app
+-# = form_for [@post.game, @post.event, @post], html: {class: 'pure-form pure-form-stacked'} do |f|
+
+= form_for @post, url: game_event_posts_path(@post.game, @post.event, user_email: params[:user_email], user_token: params[:user_token]), html: {class: 'pure-form pure-form-stacked'} do |f|
   - if @post.errors.any?
     #error_explanation.pad-10
       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
@@ -13,6 +18,10 @@
     = f.label :checkpoint
     = f.text_field :checkpoint
 
-    = f.text_field :user_id, value: current_user.try(:id) || User.find_by_email(params[:user_email]).id, hidden: true
+    = f.text_field :user_id, value: current_user.try(:id) || User.find_by_email(params[:user_email]).try(:id) #, hidden: true
+    = f.text_field :user_email, value: current_user.try(:email) || User.find_by_email(params[:user_email]).try(:email) #, hidden: true
+    = f.text_field :user_token, value: current_user.try(:auth_token) || User.find_by_email(params[:user_email]).try(:auth_token) #, hidden: true
   .pad-10
     = f.submit 'Save', class: 'pure-button success'
+
+

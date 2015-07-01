@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user_from_token!
-    if user = user_email.presence && User.find_by_email(user_email)
+    if user = User.find_by_email(user_email.presence)
       if user && Devise.secure_compare(user.auth_token, user_token)
         sign_in user, store: false
         return true
@@ -31,12 +31,12 @@ class ApplicationController < ActionController::Base
   end
 
   def user_email
-    params[:user_email] = request.headers["user-email"] if request.headers["user-email"]
+    params[:user_email] = request.headers["User-Email"] if request.headers["User-Email"]
     params[:user_email]
   end
 
   def user_token
-    params[:user_token] = request.headers["user-token"] if request.headers["user-token"]
+    params[:user_token] = request.headers["User-Token"] if request.headers["User-Token"]
     params[:user_token]
   end
 

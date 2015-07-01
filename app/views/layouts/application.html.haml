@@ -9,11 +9,8 @@
 
     = render partial: 'layouts/navigation'
 
-    .container.notices
-      - flash.each do |name, msg|
-        .pad-10
-          = content_tag :div, msg, class: "#{name} pure-well"
-
+    .container
+      = render partial: 'layouts/notices'
       = yield
 
 
