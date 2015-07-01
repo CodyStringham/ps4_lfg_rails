@@ -19,10 +19,10 @@ class Api::V1::UsersController < Api::V1::BaseController
     end
   end
 
-  def register
+  def user_register
     @user = User.new(user_params.merge(auth_token: Devise.friendly_token))
     if @user.save
-      sign_in(:user, @user)
+      sign_in(@user, store: false)
       render 'api/v1/users/show'
     else
       errors = @user.errors.full_messages.join(". ")
